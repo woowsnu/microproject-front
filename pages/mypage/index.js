@@ -1,9 +1,9 @@
 import React from 'react'
-import Post from '../../components/Post/Post'
+import MyPage from '../../components/MyPage/MyPage'
 
 const index = () => {
   return (
-    <Post />
+    <MyPage />
   )
 }
 

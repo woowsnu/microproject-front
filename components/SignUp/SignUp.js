@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "next/link";
-import Button from "../../components/UI/Button";
-import Input from "../../components/UI/Input";
+import Link  from "next/link";
+// import Button from "../../components/UI/Button";
+// import Input from "../../components/UI/Input";
 
 const SignUp = () => {
+
   const signUp = () => {
     // 회원가입 입력 폼에 들어갈 항목
     const [id, setId] = useState("");
@@ -45,16 +46,24 @@ const SignUp = () => {
         <h1 className="login-title">SIGNUP</h1>
         <div className="form-item">
           <p>아이디</p>
-          <Input />
+          <input />
+        </div>
+        <div className="form-item">
+          <p>닉네임</p>
+          <input />
         </div>
         <div className="form-item">
           <p>비밀번호</p>
-          <Input />
+          <input />
+        </div>
+        <div className="form-item">
+          <p>메일주소</p>
+          <input />
         </div>
         <div>
-          <Button className="btn-login" type="submit" onClick={signUp}>
+          <button className="btn-login" type="submit" onClick={signUp}>
             회원가입
-          </Button>
+          </button>
         </div>
       </div>
     </div>

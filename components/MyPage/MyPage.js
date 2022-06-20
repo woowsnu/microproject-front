@@ -1,8 +1,8 @@
 import React from "react";
-import Nav from "../../components/Navigation/Nav";
 import styled from "styled-components";
-import Footer from "../../components/Footer/Footer";
-
+import Nav from "../Layout/Nav";
+import Footer from "../Layout/Footer";
+import Link from "next/link";
 const USER = [
   {id: 1, nickname: "닉네임", email: "woowsnu@gmail.com"}
 ]
@@ -51,12 +51,13 @@ const MyPage = () => {
             <ul style={{listStyle: "none", paddingLeft: 0}}>
               {POST.map((post) => {
                 return (
+                  <Link href={"/post/"+ post.id}>
                   <li>
                     <h3>{post.title}</h3>
                     <p>{post.text}</p>
                     <p>{post.date}</p>
                     <hr/>
-                  </li>
+                  </li></Link>
                 );
               })}
             </ul>
@@ -71,7 +72,7 @@ const MyPage = () => {
 export default MyPage;
 
 const Container = styled.div`
-  width: 100%;
+  max-width: 100%;
   text-decoration: none;
 `;
 
