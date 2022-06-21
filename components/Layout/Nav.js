@@ -11,7 +11,7 @@ const Nav = () => {
       <div>
         <Link href="/login"><h3>로그인</h3></Link>
         {/* 로그인 시 마이페이지로 변경 */}
-        <h3 hidden="true">마이페이지</h3>
+        <h3 hidden={true}>마이페이지</h3>
       </div>
     </Container>
   );
@@ -20,7 +20,7 @@ const Nav = () => {
 export default Nav;
 
 const Container = styled.nav`
-  width: 100%;
+  max-width: 960px;
   margin: 0 auto;
   padding: 20px;
   display: flex;

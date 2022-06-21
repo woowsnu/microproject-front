@@ -25,6 +25,5 @@ export default function Home() {
 
 const Container = styled.div`
   box-sizing: border-box;
-  max-width: 960px;
   margin: 0 auto;
 `;

@@ -10,7 +10,7 @@ export default Button;
 
 const Btn = styled.button`
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 11px 0;
   color: ${color.white};
   background-color: ${color.blue};
