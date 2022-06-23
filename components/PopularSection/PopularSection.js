@@ -10,8 +10,8 @@ const PopularSection = (props) => {
       <div className="card-wrap">
         <PopularCard post={props.posts[0]}/>
         <PopularCard post={props.posts[1]}/>
-        {/* <PopularCard post={props.posts[2]}/>
-        <PopularCard post={props.posts[3]}/> */}
+        <PopularCard post={props.posts[2]}/>
+        <PopularCard post={props.posts[3]}/>
       </div>
     </Wrap>
   );
