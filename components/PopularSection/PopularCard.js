@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const PopularCard = () => {
+const PopularCard = (props) => {
+  // console.log(props.post.postId)
   return (
     <Container>
-      <span className="category-tag"></span>
-      <h4>글제목이 들어갑니다아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</h4>
+      <h4>{props.post.postTitle}</h4>
       <div className="user-profile">
         <p>닉네임이 들어갑니다</p>
+        <p>{props.post.postDate}</p>
       </div>
     </Container>
   );

@@ -34,9 +34,9 @@ const SignUp = () => {
   const signUp = () => {
     const user = {
       userId: id,
-      userMail: email,
       userName: name,
       userPassword: password,
+      userMail: email,
     };
     console.log(user);
     registUserAPI(user);

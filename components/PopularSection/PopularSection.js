@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import PopularCard from "./PopularCard";
 
-const PopularSection = () => {
+const PopularSection = (props) => {
+
   return (
     <Wrap>
       <h2 className="section-title">분야별 인기글 💥</h2>
       <div className="card-wrap">
-        <PopularCard />
-        <PopularCard />
-        <PopularCard />
-        <PopularCard />
+        <PopularCard post={props.posts[0]}/>
+        <PopularCard post={props.posts[1]}/>
+        {/* <PopularCard post={props.posts[2]}/>
+        <PopularCard post={props.posts[3]}/> */}
       </div>
     </Wrap>
   );

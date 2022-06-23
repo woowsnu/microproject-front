@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import styled from "styled-components";
 import color from "../../styles/colors";
@@ -10,6 +11,7 @@ import Input from "../../components/UI/Input";
 import { loginUserAPI } from "../../lib/api/user";
 
 const Login = () => {
+  const router = useRouter();
   // 회원가입 입력 폼에 들어갈 항목
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -24,16 +26,18 @@ const Login = () => {
 
   const logIn = () => {
     const user = {
-      user_name: id,
-      user_password: password,
+      userId: id,
+      userPassword: password,
     };
     console.log("logIn");
     console.log(user);
 
     loginUserAPI(user);
 
-    setId("");
-    setPassword("");
+    // setId("");
+    // setPassword("");
+
+    router.replace("/");
   };
 
   return (
@@ -42,10 +46,10 @@ const Login = () => {
         <div className="form-wrap">
           <h1 className="login-title">LOGIN</h1>
           <div className="form-item">
-            <Input onChange={idChangeHandler} placeholder={"아이디"}/>
+            <Input onChange={idChangeHandler} placeholder={"아이디"} value={id}/>
           </div>
           <div className="form-item">
-            <Input onChange={passwordChangeHandler} placeholder={"비밀번호"}/>
+            <Input type="password" onChange={passwordChangeHandler} placeholder={"비밀번호"} value={password}/>
           </div>
           <div className="form-button">
             <Button className="btn-login" type="submit" onClick={logIn}>
