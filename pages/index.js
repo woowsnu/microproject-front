@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Layout/Header";
 import styled from "styled-components";
 import Footer from "../components/Layout/Footer";
 import PopularSection from "../components/PopularSection/PopularSection";
 import CommunitySection from "../components/CommunitySection/CommunitySection";
 
-export default function Home() {
-  const [popularPost, setPopularPost] = useState();
-  const [community, setCommunity] = useState();
+export default function Home(props) {
+  const [posts, setPosts] = useState(props.posts);
+  const [isLogin, setIsLogin] = useState();
+
+  useEffect(()=>{
+    const loginCheck = localStorage.getItem('userId');
+    setIsLogin(loginCheck);
+  })
+
+  console.log(isLogin);
 
   return (
     <>
       <Container>
-        <Header />
+        <Header isLogin={isLogin}/>
         <main>
-          <PopularSection popularPost={popularPost} />
-          <CommunitySection community={community} />
+          <PopularSection posts={posts}/>
+          <CommunitySection/>
         </main>
       </Container>
       <Footer />
@@ -25,6 +32,20 @@ export default function Home() {
 
 const Container = styled.div`
   box-sizing: border-box;
-  max-width: 960px;
   margin: 0 auto;
 `;
+
+
+export const getServerSideProps = async () => {
+  try {
+    const res = await fetch("http://localhost:8080/api/post");
+    const posts = await res.json();
+    return {
+      props: { posts },
+    };
+  } catch (error) {
+    console.log(error);
+    return { props: {} };
+  }
+};
+

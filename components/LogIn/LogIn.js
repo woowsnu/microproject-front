@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 import styled from "styled-components";
+import color from "../../styles/colors";
+import fonts from "../../styles/fonts";
+
 import Button from "../../components/UI/Button";
 import Input from "../../components/UI/Input";
-import color from "../../styles/colors";
-import Link from "next/link";
 import { loginUserAPI } from "../../lib/api/user";
 
 const Login = () => {
+
+  const router = useRouter();
   // 회원가입 입력 폼에 들어갈 항목
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -19,18 +25,18 @@ const Login = () => {
   };
   // 로그인 전송 API 연결
 
+  
   const logIn = () => {
     const user = {
-      user_name: id,
-      user_password: password,
+      userId: id,
+      userPassword: password,
     };
-    console.log("logIn");
-    console.log(user);
 
     loginUserAPI(user);
-
-    setId("");
-    setPassword("");
+    
+    localStorage.setItem("userId", id)
+    
+    router.replace("/");
   };
 
   return (
@@ -39,20 +45,18 @@ const Login = () => {
         <div className="form-wrap">
           <h1 className="login-title">LOGIN</h1>
           <div className="form-item">
-            <p>아이디</p>
-            <Input onChange={idChangeHandler}/>
+            <Input onChange={idChangeHandler} placeholder={"아이디"} value={id}/>
           </div>
           <div className="form-item">
-            <p>비밀번호</p>
-            <Input onChange={passwordChangeHandler}/>
+            <Input type="password" onChange={passwordChangeHandler} placeholder={"비밀번호"} value={password}/>
           </div>
-          <div>
+          <div className="form-button">
             <Button className="btn-login" type="submit" onClick={logIn}>
               로그인
             </Button>
           </div>
           <Link href="/signup">
-            <p>아직 회원이 아니신가요? 회원가입</p>
+            <p className="text-signup">아직 회원이 아니신가요? <span style={{color: "#2D81FF", fontWeight: 600}}>회원가입</span></p>
           </Link>
         </div>
       </div>
@@ -71,8 +75,8 @@ const Container = styled.div`
   padding-top: 120px;
 
   .form-wrap {
+    width: 400px;
     padding: 30px;
-    width: 90%;
     margin: 0 auto;
   }
 
@@ -86,5 +90,11 @@ const Container = styled.div`
   .form-item {
     text-align: left;
     margin-top: 6px;
+  }
+
+  .text-signup {
+    ${fonts.Body1}
+    text-align: center;
+    margin-top: 30px;
   }
 `;
