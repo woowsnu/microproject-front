@@ -11,6 +11,7 @@ import Input from "../../components/UI/Input";
 import { loginUserAPI } from "../../lib/api/user";
 
 const Login = () => {
+
   const router = useRouter();
   // 회원가입 입력 폼에 들어갈 항목
   const [id, setId] = useState("");
@@ -24,6 +25,7 @@ const Login = () => {
   };
   // 로그인 전송 API 연결
 
+  
   const logIn = () => {
     const user = {
       userId: id,
@@ -31,7 +33,9 @@ const Login = () => {
     };
 
     loginUserAPI(user);
-
+    
+    localStorage.setItem("userId", id)
+    
     router.replace("/");
   };
 

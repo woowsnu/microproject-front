@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Layout/Header";
 import styled from "styled-components";
 import Footer from "../components/Layout/Footer";
@@ -7,16 +7,22 @@ import CommunitySection from "../components/CommunitySection/CommunitySection";
 
 export default function Home(props) {
   const [posts, setPosts] = useState(props.posts);
-  const [popularPost, setPopularPost] = useState();
-  const [community, setCommunity] = useState();
+  const [isLogin, setIsLogin] = useState();
+
+  useEffect(()=>{
+    const loginCheck = localStorage.getItem('userId');
+    setIsLogin(loginCheck);
+  })
+
+  console.log(isLogin);
 
   return (
     <>
       <Container>
-        <Header />
+        <Header isLogin={isLogin}/>
         <main>
-          <PopularSection popularPost={popularPost}  posts={posts}/>
-          <CommunitySection community={community} />
+          <PopularSection posts={posts}/>
+          <CommunitySection/>
         </main>
       </Container>
       <Footer />
@@ -42,3 +48,4 @@ export const getServerSideProps = async () => {
     return { props: {} };
   }
 };
+

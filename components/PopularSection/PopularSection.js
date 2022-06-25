@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import styled from "styled-components";
 import PopularCard from "./PopularCard";
 
@@ -8,10 +9,10 @@ const PopularSection = (props) => {
     <Wrap>
       <h2 className="section-title">분야별 인기글 💥</h2>
       <div className="card-wrap">
-        <PopularCard post={props.posts[0]}/>
-        <PopularCard post={props.posts[1]}/>
-        {/* <PopularCard post={props.posts[2]}/>
-        <PopularCard post={props.posts[3]}/> */}
+        <PopularCard post={props.posts[0]} id={1}/>
+        <PopularCard post={props.posts[1]} id={2}/>
+        <PopularCard post={props.posts[0]} id={1}/>
+        <PopularCard post={props.posts[1]} id={1}/>
       </div>
     </Wrap>
   );
