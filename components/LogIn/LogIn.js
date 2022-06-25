@@ -29,13 +29,8 @@ const Login = () => {
       userId: id,
       userPassword: password,
     };
-    console.log("logIn");
-    console.log(user);
 
     loginUserAPI(user);
-
-    // setId("");
-    // setPassword("");
 
     router.replace("/");
   };
