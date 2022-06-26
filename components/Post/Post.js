@@ -36,6 +36,11 @@ const Post = () => {
     setDescription(e.target.value);
   };
 
+  // 발행 여부
+  const releaseHandler = () => {
+    setRelease(0);
+  }
+
   const addPost = () => {
     const post = {
       postTitle: title,
@@ -49,17 +54,35 @@ const Post = () => {
     // 폼에 입력된 상태값 초기화
     setTitle("");
     setDescription("");
-    router.replace("/");
+
+    router.push(`/post/${title}`);
+
+    //   router.push({
+    //   pathname: '/post/[title]',
+    //   query: { title: title },
+    // })
   };
   return (
     <Container>
-      <div className="text-area">
-        <input  className="title" type="text" onChange={titleChangeHandler} value={title} placeholder="제목을 입력하세요"/>
-        <textarea className="description" onChange={descChangeHandler} placeholder="내용을 입력하세요"></textarea>
-      </div>
-      <div className="save-area">
-        <input type="radio" />
-        <Button onClick={addPost}>저장</Button>
+      <div className="wrap">
+        <div className="text-area">
+          <input
+            className="title"
+            type="text"
+            onChange={titleChangeHandler}
+            value={title}
+            placeholder="제목을 입력하세요"
+          />
+          <textarea
+            className="description"
+            onChange={descChangeHandler}
+            placeholder="내용을 입력하세요"
+          ></textarea>
+        </div>
+        <div className="save-area">
+          <input type="checkbox" onClick={releaseHandler} value={release}/><label> 비공개</label>
+          <Button onClick={addPost}>저장</Button>
+        </div>
       </div>
     </Container>
   );
@@ -70,11 +93,13 @@ export default Post;
 const Container = styled.div`
   width: 100%;
 
-  .text-area {
+  .wrap {
     max-width: 960px;
+    margin: 30px auto;
+  }
+  .text-area {
     display: flex;
     flex-direction: column;
-    margin: 30px auto;
   }
 
   .title {
@@ -104,7 +129,9 @@ const Container = styled.div`
   }
 
   .save-area {
-    width: 300px;
+    width: 200px;
+    padding-top: 20px;
+    float: right;
   }
 
 `;
