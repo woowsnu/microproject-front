@@ -10,13 +10,10 @@ const Header = (props) => {
     <Container>
       <Nav isLogin={props.isLogin}/>
       <div className="wrap">
-        <h2>micro project</h2>
-        {/* 로그인 시 아래 글쓰기 버튼 노출 or 비로그인 시 클릭 > 회원가입으로 연결 */}
+        <div className="title">✍<br />창작의 고통을 나눠요.</div>
       </div>
       <div className="btn-area">
-        <Link href="/post">
-          <Button>글쓰기</Button>
-        </Link>
+        {props.isLogin != null && <Link href="/post"><Button>글쓰기</Button></Link>}
       </div>
     </Container>
   );
@@ -33,7 +30,13 @@ const Container = styled.div`
     max-width: 960px;
     margin: 0 auto;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 80px;
+    color: white;
+  }
+
+  .title {
+    font-size: 44px;
+    font-weight: 600;
   }
 
   .btn-area {

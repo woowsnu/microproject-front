@@ -35,7 +35,6 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-
 export const getServerSideProps = async () => {
   try {
     const res = await fetch("http://localhost:8080/api/post");

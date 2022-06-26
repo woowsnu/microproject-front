@@ -1,10 +1,5 @@
-import React from 'react'
-import MyPage from '../../components/MyPage/MyPage'
-
 const index = () => {
-  return (
-    <MyPage />
-  )
+  return <div>MyPage</div>
 }
 
 export default index
