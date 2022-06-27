@@ -6,7 +6,7 @@ const data = [
   {id : 1, title: "웹소설 같이써요", topic: "판타지", person: 2 },
   {id : 2, title: "브랜딩전략 전자책 함께 쓰실 분!", topic: "브랜딩/실무", person: 1 },
   {id : 3, title: "퇴사 후 생활 에세이로 남기실 분", topic: "에세이", person: 3 },
-  {id : 4, title: "소수 정예 단편 소설쓰기 모임 모집합니다", topic: "드라마/소설", person: 2 },
+  {id : 4, title: " 단편 소설 모임 모집합니다", topic: "드라마/소설", person: 2 },
 ]
 
 const CommunitySection = () => {
