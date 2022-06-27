@@ -1,7 +1,8 @@
 import React from "react";
-import Image from "next/image";
 import styled from "styled-components";
 import PopularCard from "./PopularCard";
+
+const images = ["/static/images/post1.png", "/static/images/post2.png", "/static/images/post3.png", "/static/images/post4.png"]
 
 const PopularSection = (props) => {
 
@@ -9,10 +10,10 @@ const PopularSection = (props) => {
     <Wrap>
       <h2 className="section-title">분야별 인기글 💥</h2>
       <div className="card-wrap">
-        <PopularCard post={props.posts[0]} id={1}/>
-        <PopularCard post={props.posts[1]} id={2}/>
-        <PopularCard post={props.posts[0]} id={1}/>
-        <PopularCard post={props.posts[1]} id={1}/>
+        <PopularCard post={props.posts[0]} bg={images[0]}/>
+        <PopularCard post={props.posts[1]} bg={images[1]}/>
+        <PopularCard post={props.posts[2]} bg={images[2]}/>
+        <PopularCard post={props.posts[3]} bg={images[3]}/>
       </div>
     </Wrap>
   );

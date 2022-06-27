@@ -1,15 +1,15 @@
 import React from "react";
+import Image from "next/image";
 import styled from "styled-components";
 
 const PopularCard = (props) => {
   // console.log(props.post.postId)
   return (
-    <Container>
+    <Container alt="<a href='https://www.freepik.com/psd/peace-icon'>Peace icon psd created by freepik - www.freepik.com</a>">
       <BgOpacityBlack />
       <div className="camp-content">
       <h4>{props.post.postTitle}</h4>
       <div className="user-profile">
-        <p>닉네임</p>
         <p>{props.post.postDate}</p>
       </div>
       </div>
@@ -24,7 +24,7 @@ const Container = styled.div`
     width: 224px;
     height: 280px;
     box-sizing: border-box;
-    background-color: url('/static/images/post1.png');
+    background: url('/static/images/post4.png');
     border-radius: 5px;
     padding: 0 16px;
     border: 1px solid #d9d9db;
@@ -53,5 +53,5 @@ const BgOpacityBlack = styled.div`
     rgba(89, 89, 89, 0.558824) 15.62%,
     #000000 70.83%
   );
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 5px;
 `;
